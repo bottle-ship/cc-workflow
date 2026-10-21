@@ -58,7 +58,6 @@ flowchart TD
 ### 1. 설계 탐색 — Superpowers / Matt Pocock (필요시)
 
 - **기본:** `brainstorming`으로 요구사항·대안·수용 기준을 정리하고 설계를 승인받는다.
-- **선택:** 미결 사항은 `/grill-me`, 용어·설계 결정 문서화는 `/grill-with-docs`를 활용한다.
 
 **요청 예시**
 
@@ -67,6 +66,8 @@ flowchart TD
 Superpowers brainstorming으로 요구사항과 설계 대안을 구체화해 주세요.
 설계 승인 전에는 코드를 작성하거나 수정하지 마세요.
 ```
+
+- **선택:** 미결 사항은 `/grill-me`, 용어·설계 결정 문서화는 `/grill-with-docs`를 활용한다.
 
 **요청 예시(선택)**
 
