@@ -17,27 +17,27 @@
 ## 2. 한눈에 보는 전체 흐름
 
 ```mermaid
-flowchart TD
-    A["0. 작업 분류<br/>규모 · 위험도 · 기존 명세"] --> Q{"S · 명확 · 저위험?"}
-    Q -- "예" --> E["3. TDD 구현<br/>Superpowers + Ponytail lite"]
+flowchart LR
+    A["0. 작업 분류"] --> Q{"S · 명확 · 저위험?"}
+    Q -- "예" --> E["3. TDD 구현"]
     Q -- "아니요" --> B{"설계 탐색 필요?"}
-    B -- "예" --> C["1. 설계 탐색<br/>Superpowers brainstorming<br/>Matt Pocock Grilling 선택"]
-    B -- "아니요" --> D["2. 명세·계획<br/>Superpowers + Ponytail lite"]
+    B -- "예" --> C["1. 설계 탐색"]
+    B -- "아니요" --> D["2. 명세·계획"]
     C --> D
     D --> E
-    E --> F["4. 자체 검증<br/>Superpowers 필수 · Ponytail 선택"]
+    E --> F["4. 자체 검증"]
     F --> G{"검증 통과?"}
-    G -- "아니요" --> R{"같은 문제 해결에<br/>2회 실패?"}
+    G -- "아니요" --> R{"수정·검증<br/>2회 실패?"}
     R -- "아니요" --> E
-    R -- "예" --> S["원인 재분석<br/>systematic-debugging<br/>Codex Rescue 선택"]
+    R -- "예" --> S["원인 재분석"]
     S --> T{"해결 근거 확보?"}
     T -- "예" --> E
-    T -- "아니요" --> U["차단 요인·후속 선택지 보고"]
+    T -- "아니요" --> U["차단·후속 선택지 보고"]
     G -- "예" --> H{"M/L 또는 고위험?"}
-    H -- "예" --> I["5. Codex Review"]
+    H -- "예" --> I["5. 독립 리뷰"]
     I --> J{"수정 대상 결함?"}
     J -- "예" --> E
-    J -- "아니요" --> K["6. 마무리<br/>Superpowers"]
+    J -- "아니요" --> K["6. 마무리"]
     H -- "아니요" --> K
 ```
 
