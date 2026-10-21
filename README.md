@@ -78,9 +78,9 @@ Superpowers brainstorming으로 요구사항과 설계 대안을 구체화해 �
 
 ### 2. 명세·계획 — Superpowers + Ponytail
 
-- **L:** 승인된 설계로 `writing-plans` 실행. **M:** 간략 계획으로 대체 가능.
 - Ponytail의 공식 내장 기본은 `full`, 이 가이드의 운영 기본은 `lite`다. **각 세션에서 계획·구현 전에 `/ponytail lite`를 실행**한다. 세션 동안 유지되며 추가 단순화 검토 시에만 `/ponytail full`을 선택한다.
 - 문서 저장 위치는 플러그인 기본 경로보다 프로젝트 문서 정책을 우선한다.
+- **L:** 승인된 설계로 `writing-plans` 실행. **M:** 간략 계획으로 대체 가능.
 
 **요청 예시**
 
@@ -160,6 +160,8 @@ Superpowers verification-before-completion으로 수용 기준 충족 여부를 
 
 자체 검증을 통과한 **M/L 및 고위험 변경은 Codex로 독립적인 버그·회귀 위험을 검토**한다. 앞선 지적과 통합 관리한다.
 
+`<비교 기준 브랜치>`는 실제 대상(예: `main`, `develop`, `release/1.0`)으로 바꾼다. `--base`는 커밋된 브랜치 변경 대상이며, 미커밋 변경은 `--base` 대신 `--scope working-tree`로 검토한다. 일반 `/codex:review`에는 집중 검토 문구를 붙일 수 없다.
+
 **요청 예시**
 
 ```text
@@ -173,8 +175,6 @@ Superpowers verification-before-completion으로 수용 기준 충족 여부를 
 ```text
 /codex:adversarial-review --base <비교 기준 브랜치> 현재 설계의 핵심 가정과 선택 근거를 검토하고, 가정이 깨지는 조건과 실패 시나리오를 찾아주세요.
 ```
-
-`<비교 기준 브랜치>`는 실제 대상(예: `main`, `develop`, `release/1.0`)으로 바꾼다. `--base`는 커밋된 브랜치 변경 대상이며, 미커밋 변경은 `--base` 대신 `--scope working-tree`로 검토한다. 일반 `/codex:review`에는 집중 검토 문구를 붙일 수 없다.
 
 **리뷰 후 처리 (공통)**
 
@@ -198,14 +198,14 @@ Superpowers verification-before-completion으로 수용 기준 충족 여부를 
 
 `finishing-a-development-branch`로 4·5단계의 완료 조건을 확인하고 통합 방안을 제시한다. 수용 기준·검사 결과·미실행 테스트·리뷰 처리·잔여 위험을 함께 보고한다.
 
-**기술 부채(선택):** 의도적으로 미룬 개선사항은 `/ponytail-debt`로 수집하고, 제약·개선 조건에 따라 후속 관리한다.
-
 **요청 예시**
 
 ```text
 Superpowers finishing-a-development-branch로 최종 검증 상태를 확인하고
 완료 또는 통합 선택지를 제시해 주세요.
 ```
+
+**기술 부채(선택):** 의도적으로 미룬 개선사항은 `/ponytail-debt`로 수집하고, 제약·개선 조건에 따라 후속 관리한다.
 
 ---
 
