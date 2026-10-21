@@ -162,7 +162,7 @@ Superpowers verification-before-completion으로 수용 기준 충족 여부를 
 **요청 예시**
 
 ```text
-/codex:review --base main
+/codex:review --base <비교 기준 브랜치>
 ```
 
 **Adversarial Review(선택):** 고위험 설계 가정·실패 시나리오를 검토할 때 사용한다.
@@ -170,10 +170,10 @@ Superpowers verification-before-completion으로 수용 기준 충족 여부를 
 **요청 예시(선택)**
 
 ```text
-/codex:adversarial-review --base main challenge data loss and concurrency risks
+/codex:adversarial-review --base <비교 기준 브랜치> 현재 설계의 핵심 가정과 선택 근거를 검토하고, 가정이 깨지는 조건과 실패 시나리오를 찾아주세요.
 ```
 
-`main`은 실제 비교 기준 브랜치로 바꾼다. `--base`는 커밋된 브랜치 변경 대상이며, 미커밋 변경은 `--base` 없이 `--scope working-tree`로 검토한다. 일반 `/codex:review`에는 집중 검토 문구를 붙일 수 없다.
+`<비교 기준 브랜치>`는 실제 대상(예: `main`, `develop`, `release/1.0`)으로 바꾼다. `--base`는 커밋된 브랜치 변경 대상이며, 미커밋 변경은 `--base` 대신 `--scope working-tree`로 검토한다. 일반 `/codex:review`에는 집중 검토 문구를 붙일 수 없다.
 
 **리뷰 후 처리 (공통)**
 
@@ -246,8 +246,8 @@ Superpowers finishing-a-development-branch로 최종 검증 상태를 확인하�
 
 | 명령어 | 주요 기능 | 권장 사용 시점 | 요청 예시 |
 |---|---|---|---|
-| `/codex:review` | 읽기 전용 버그·회귀 리뷰 | 자체 검증을 통과한 M/L·고위험 작업 | `/codex:review --base main` |
-| `/codex:adversarial-review` | 설계 가정·실패 시나리오 비판 | 고위험·주요 설계 변경 | `/codex:adversarial-review --base main challenge error handling` |
+| `/codex:review` | 읽기 전용 버그·회귀 리뷰 | 자체 검증을 통과한 M/L·고위험 작업 | `/codex:review --base <비교 기준 브랜치>` |
+| `/codex:adversarial-review` | 설계 가정·실패 시나리오 비판 | 고위험·주요 설계 변경 | `/codex:adversarial-review --base <비교 기준 브랜치> 현재 설계의 핵심 가정과 선택 근거를 검토하고, 가정이 깨지는 조건과 실패 시나리오를 찾아주세요.` |
 | `/codex:rescue` | 버그 분석·명시적 수정 위임 | 반복 실패·독립 진단 필요 시 | `/codex:rescue --fresh 오류의 원인만 분석해 주세요. 코드 수정은 하지 마세요.` |
 
 ---
